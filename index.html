@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+      <style>
+         /* Add custom CSS styles here */
+         body {
+         background-color: #f1f1f1;
+         color: #333;
+         }
+         /* Add styles for cartoon-style display */
+         .container {
+         margin: 100px auto;
+         }
+         /* Add black and white styles */
+         .form-control {
+         background: #fff;
+         color: #333;
+         border-color: #ddd;
+         border-radius: 10px;
+         transition: all 0.3s ease-in-out;
+         }
+         /* Add styles for optimized and small logo */
+         img.logo {
+           width: 80px;
+           height: 80px;
+         }
+         /* Add modern black and white cartoon style */
+         .card {
+           background: #fff;
+           border: 1px solid #ddd;
+           padding: 20px;
+           border-radius: 10px;
+           box-shadow: 0 0 10px #ddd;
+           text-align: center;
+         }
+         /* Add modern black and white cartoon style */
+         .card h1 {
+           font-size: 30px;
+           font-weight: bold;
+           text-transform: uppercase;
+           letter-spacing: 2px;
+           margin-bottom: 20px;
+         }
+         /* Add modern black and white cartoon style */
+         .card .form-group {
+           margin-bottom: 20px;
+         }
+         /* Add modern black and white cartoon style */
+         .card .form-group label {
+           font-weight: bold;
+           margin-bottom: 5px;
+         }
+         /* Add modern black and white cartoon style */
+         .card .form-group .btn {
+           background: #333;
+           border-radius: 10px;
+           color: #fff;
+           padding: 10px 20px;
+           margin-right: 10px;
+           transition: all 0.3s ease-in-out;
+         }
+         /* Add modern black and white cartoon style */
+         .card .form-group .btn:hover {
+           background: #555;
+         }
+         /* Add styles for the mailto link display */
+         #mailto-link {
+           background: #fff;
+           padding: 10px;
+           border-radius: 10px;
+           display: none;
+           animation: fadeIn 0.5s ease-in-out;
+           text-align: center;
+         }
+         /* Add styles for the mailto link display */
+         #mailto-link h3 {
+           font-size: 20px;
+           font-weight: bold;
+           margin-bottom: 10px;
+         }
+         /* Add styles for the mailto link display */
+         #mailto-link p {
+           font-size: 16px;
+           line-height: 1.5;
+           margin-bottom: 20px;
+         }
+         /* Add styles for the mailto link display */
+         #mailto-link input {
+           width: 100%;
+           padding: 10px;
+           border: none;
+           border-radius: 10px;
+           margin-top: 10px;
+         }
+         /* Add styles for the mailto link description section */
+         .description {
+           background: #f1f1f1;
+           padding: 20px;
+           border-radius: 10px;
+           text-align: left;
+           margin-top: 50px;
+         }
+         /* Add styles for the mailto link description section */
+         .description h3 {
+           font-size: 20px;
+           font-weight: bold;
+           margin-bottom: 10px;
+         }
+         /* Add styles for the mailto link description section */
+         .description p {
+           font-size: 16px;
+           line-height: 1.5;
+           margin-bottom: 20px;
+         }
+         /* Add styles for the mailto link description section */
+         .description ul {
+           list-style: none;
+           padding: 0;
+           margin-bottom: 0;
+         }
+         /* Add styles for the mailto link description section */
+         .description ul li {
+           font-size: 16px;
+           line-height: 1.5;
+           margin-bottom: 10px;
+           list-style-type: square;
+         }
+         /* Add styles for final result box */
+         .result-box {
+           background: #fff;
+           padding: 20px;
+           border-radius: 10px;
+           box-shadow: 0 0 10px #ddd;
+           text-align: center;
+           display: none;
+           margin-top: 20px;
+         }
+         /* Add styles for final result box */
+         .result-box h3 {
+           font-size: 20px;
+           font-weight: bold;
+           margin-bottom: 10px;
+         }
+         /* Add styles for final result box */
+         .result-box p {
+           font-size: 16px;
+           line-height: 1.5;
+           margin-bottom: 20px;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="container">
+         <div class="row justify-content-center">
+            <div class="col-md-8">
+               <div class="text-center">
+                  <img src="/logo.png" alt="Mailto Link Generator" class="logo">
+                </div>
+                <div class="card">
+                    <h1 class="text-center">Mailto Link Generator</h1>
+                    <form>
+                    <div class="form-group">
+                    <label for="to">To:</label>
+                    <input type="email" class="form-control" id="to" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                    <label for="subject">Subject:</label>
+                    <input type="text" class="form-control" id="subject" placeholder="Enter subject">
+                    </div>
+                    <div class="form-group">
+                    <label for="body">Body:</label>
+                    <textarea class="form-control" id="body" rows="3"></textarea>
+                    </div>
+                    <div class="form-group text-center">
+                    <button type="button" class="btn btn-primary mr-2" onclick="generateMailtoLink()">
+                    Generate
+                    </button>
+                    </div>
+                    </form>
+                    <div class="result-box" id="mailto-link">
+                    <h3>Mailto Link</h3>
+                    <p id="mailto-link-text"></p>
+                    <input type="text" id="link-input" readonly>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="row justify-content-center">
+                    <div class="col-md-8">
+                    <div class="description">
+                    <h3>What is a mailto link?</h3>
+                    <p>A mailto link is a type of HTML link that allows users to compose an email directly from a web page. When a user clicks on a mailto link, their default email client (such as Outlook or Gmail) will open with the recipient, subject, and body of the email already filled in.</p>
+                    <h3>Uses of a mailto link</h3>
+                    <ul>
+                    <li>Providing a way for users to contact a website's administrator or support team</li>
+                    <li>Allowing users to easily share an email with a friend or colleague</li>
+                    <li>Allowing users to easily send feedback or report bugs on a website</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<script>
+function generateMailtoLink() {
+var to = document.getElementById("to").value;
+var subject = document.getElementById("subject").value;
+var body = document.getElementById("body").value;
+var mailtoLink = "mailto:" + to + "?subject=" + subject + "&body=" + encodeURIComponent(body);
+var link = document.getElementById("mailto-link-text");
+var input = document.getElementById("link-input");
+//link.innerHTML = mailtoLink;
+input.value = mailtoLink;
+var resultBox = document.getElementById("mailto-link");
+resultBox.style.display = "block";
+}
+</script>
+
+   </body>
+</html>
